@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import PropTypes from 'prop-types';
 
-export default class VillagerList extends Component {
-  render() {
-    return <div>hello</div>;
-  }
-}
+const VillagerList = () => (
+  <ul>List will go here...</ul>
+);
+
+VillagerList.propTypes = {
+
+};
+
+export default VillagerList;

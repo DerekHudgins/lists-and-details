@@ -5,6 +5,6 @@ import ListPage from './ListPage';
 describe('List page', () => {
   it('renders the list page', () => {
     render(<ListPage />);
-    screen.getByText('yo yo');
+    screen.getByText('Villager List');
   });
 });

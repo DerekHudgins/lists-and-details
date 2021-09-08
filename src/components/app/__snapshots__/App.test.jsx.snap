@@ -3,8 +3,17 @@
 exports[`App component renders App 1`] = `
 <DocumentFragment>
   <h1>
-    yo?
+    Animal Crossing Landing Page!
   </h1>
-   yo yo
+  <div
+    class="listpage"
+  >
+    <h3>
+      Villager List
+    </h3>
+    <ul>
+      List will go here...
+    </ul>
+  </div>
 </DocumentFragment>
 `;
