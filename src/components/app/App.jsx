@@ -6,7 +6,7 @@ import DetailPage from '../../containers/DetailPage';
 export default function App() {
   return (
     <Router>
-      <h1>Hello, world</h1>
+      <h1>yo?</h1>
       <Switch>
         <Route
           path="/"
