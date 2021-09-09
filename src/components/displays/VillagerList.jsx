@@ -1,16 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Villager from './Villager';
 
-const VillagerList = () => <ul aria-label="villagers">List will go here...</ul>;
+const VillagerList = ({ villagers }) => (
+  <ul aria-label="villagers">
+    {villagers.map((villager) => (
+      <li key={villager.id}>
+        <Villager
+          name={villager.name}
+          japaneseName={villager.japaneseName}
+          image={villager.image}
+          phrase={villager.phrase}
+        />
+      </li>
+    ))}
+  </ul>
+);
 
 VillagerList.propTypes = {
   villagers: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      japaneseName: PropTypes.string,
-      image: PropTypes.string,
-      phrase: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      japaneseName: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      phrase: PropTypes.string.isRequired,
     })
   ),
 };
