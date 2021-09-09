@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 const VillagerList = ({ villagers }) => (
   <ul aria-label="villagers">
     {villagers.map((villager) => (
-      <Link key={villager.id} to={`/${villager.name.id}`}>
-        <li>
+      <li key={villager.id}>
+        <Link to={`/${villager.id}`}>
           <Villager
             name={villager.name}
             japaneseName={villager.japaneseName}
             image={villager.image}
             phrase={villager.phrase}
           />
-        </li>
-      </Link>
+        </Link>
+      </li>
     ))}
   </ul>
 );
@@ -27,7 +27,7 @@ VillagerList.propTypes = {
       japaneseName: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
       phrase: PropTypes.string.isRequired,
-    })
+    }).isRequired
   ),
 };
 

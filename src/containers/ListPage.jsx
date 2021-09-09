@@ -22,7 +22,6 @@ export default class ListPage extends Component {
         ) : (
           <VillagerList villagers={this.state.villagers} />
         )}
-        />
       </div>
     );
   }

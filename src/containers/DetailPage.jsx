@@ -1,21 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-// import style from './VillagerDetail.css';
+import React, { Component } from 'react';
+import VillagerDetail from '../components/displays/VillagerDetail';
+import { fetchVillagerById } from '../services/fetchVillagers';
+import style from './DetailPage.css';
 
-const VillagerDetail = ({ name, japaneseName, image, phrase }) => (
-  <>
-    <h3>{name}</h3>
-    <h3>{japaneseName}</h3>
-    <img className={style.villagerImg} alt={name} src={image} />
-    <p>{phrase}</p>
-  </>
-);
+export default class DetailPage extends Component {
+  state = {
+    loading: true,
+    villager: {},
+  };
 
-VillagerDetail.propTypes = {
-  name: PropTypes.string.isRequired,
-  japaneseName: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  phrase: PropTypes.string.isRequired,
-};
+  componentDidMount = async () => {
+    const villager = await fetchVillagerById(this.props.match.params.villager);
+    this.setState({ loading: false, villager });
+  };
 
-export default VillagerDetail;
+  render() {
+    const { name, japaneseName, image, phrase } = this.state.villager;
+
+    return (
+      <div className={style.detailPage}>
+        {this.state.loading ? (
+          <p>Loading...</p>
+        ) : (
+          <VillagerDetail
+            name={name}
+            japaneseName={japaneseName}
+            image={image}
+            phrase={phrase}
+          />
+        )}
+      </div>
+    );
+  }
+}

@@ -2,7 +2,7 @@ export const fetchVillagers = async () => {
   const response = await fetch('https://ac-vill.herokuapp.com/villagers');
   const results = await response.json();
 
-  return results.map((villager) => ({
+  return results.map(villager => ({
     id: villager._id,
     name: villager.name,
     japaneseName: villager.japaneseName,
@@ -11,16 +11,9 @@ export const fetchVillagers = async () => {
   }));
 };
 
-// export const fetchVillagers = () => {
-//   return fetch('https://ac-vill.herokuapp.com/villagers').then((res) =>
-//     res.json().then((json) =>
-//       json.map((villager) => ({
-//         id: villager.id,
-//         name: villager.name,
-//         japaneseName: villager.japaneseName,
-//         image: villager.image,
-//         phrase: villager.phrase,
-//       }))
-//     )
-//   );
-// };
+export const fetchVillagerById = async (id) => {
+  const response = await fetch(`https://ac-vill.herokuapp.com/villagers/${id}`);
+  const villager = await response.json();
+
+  return villager;
+};
