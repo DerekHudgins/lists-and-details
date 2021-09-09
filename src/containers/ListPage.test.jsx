@@ -6,5 +6,6 @@ describe('List page', () => {
   it('renders the list page', () => {
     render(<ListPage />);
     screen.getByText('Villager List');
+    
   });
 });
