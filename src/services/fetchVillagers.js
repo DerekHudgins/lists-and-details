@@ -18,7 +18,7 @@ export const fetchVillagers = async () => {
 //         id: villager.id,
 //         name: villager.name,
 //         japaneseName: villager.japaneseName,
-//         Image: villager.image,
+//         image: villager.image,
 //         phrase: villager.phrase,
 //       }))
 //     )
