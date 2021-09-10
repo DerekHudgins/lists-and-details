@@ -1,11 +1,18 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import ListPage from './ListPage';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('List page', () => {
-  it('renders the list page', () => {
-    render(<ListPage />);
-    screen.getByText('Villager List');
-    
+  afterAll(() => cleanup());
+  it('renders the list page', async () => {
+    render(
+      <MemoryRouter>
+        <ListPage />
+      </MemoryRouter>
+    );
+    const ul = await screen.findByRole('list', { name: 'villagers-list' });
+    expect(ul).toBeInTheDocument();
+    expect(ul).toMatchSnapshot();
   });
 });

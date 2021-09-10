@@ -4,7 +4,7 @@ import Villager from './Villager';
 import { Link } from 'react-router-dom';
 
 const VillagerList = ({ villagers }) => (
-  <ul aria-label="villagers">
+  <ul aria-label="villagers-list">
     {villagers.map((villager) => (
       <li key={villager.id}>
         <Link to={`/${villager.id}`}>
